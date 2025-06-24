@@ -2,27 +2,82 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Поздравительная открытка</title>
+  <title>Для тебя 💌</title>
   <style>
     body {
-      background: #f5f5f5;
-      font-family: 'Arial', sans-serif;
-      text-align: center;
-      padding: 50px;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ffeef5, #e0f7ff);
+      font-family: 'Comic Sans MS', cursive;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      transition: background 1s;
     }
+
     .card {
       background: white;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      display: inline-block;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 500px;
+      animation: fadeIn 1.2s ease;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      color: #c94e8b;
+      margin-bottom: 20px;
+      animation: floatIn 1.4s ease-out;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 1rem;
+      background-color: #f7a3c3;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e278a3;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes floatIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>С Днём Рождения!</h1>
-    <p>Желаю счастья, здоровья и удачи 🎉</p>
+  <div class="card" id="card">
+    <h1>Я рад, что ты отсканировала QR-код 💗<br><br>и шоколадку я оставил не случайно 🍫</h1>
+    <button onclick="showNext()">Узнать дальше</button>
   </div>
+
+  <script>
+    function showNext() {
+      const card = document.getElementById('card');
+      card.innerHTML = `
+        <h1 style="color:#7e3e7d;">
+          Я помню, что ты говорила,<br>что дашь знать,<br>когда захочешь выпить кофе в моей компании ☕<br><br>
+          Думаю, что <strong>сегодня вечером</strong> — подходящий момент 🌇<br><br>
+          Приглашаю тебя после работы на кофе 💞
+        </h1>
+      `;
+      document.body.style.background = "linear-gradient(135deg, #fdf0f7, #e0f0ff)";
+    }
+  </script>
 </body>
 </html>
